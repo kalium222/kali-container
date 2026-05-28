@@ -1,8 +1,10 @@
 FROM kalilinux/kali-rolling:latest
 MAINTAINER Invincible the Catheter King
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt update && apt -y install kali-linux-headless
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    kali-linux-headless \
+    seclists
 
 WORKDIR /root
 CMD ["/bin/zsh"]
